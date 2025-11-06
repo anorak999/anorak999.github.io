@@ -128,7 +128,18 @@
             float ripple = sin(10.0 * dist - uTime * 2.0) * 0.03;
             uv += (diff / (dist + 0.0001)) * ripple * falloff;
 
-            vec3 color = uBaseColor / abs(sin(uTime - uv.y - uv.x));
+            // Brand colors: Robot Red (#DB2E40) and Neon Green/Lime (#D3FF01)
+            vec3 robotRed = vec3(0.859, 0.180, 0.251);   // #DB2E40
+            vec3 neonGreen = vec3(0.827, 1.0, 0.004);    // #D3FF01
+            
+            // Create blend factor based on distortion pattern
+            float blendFactor = sin(uTime - uv.y - uv.x) * 0.5 + 0.5;
+            
+            // Mix the two brand colors based on the distortion
+            vec3 blendedColor = mix(robotRed, neonGreen, blendFactor);
+            
+            // Apply liquid chrome effect
+            vec3 color = blendedColor / (abs(sin(uTime * 0.3 - uv.y - uv.x)) + 0.3);
             return vec4(color, 1.0);
         }
 
