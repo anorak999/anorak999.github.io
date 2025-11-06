@@ -42,16 +42,17 @@
     }
 
     :root {
-      /* R0GB0T Brand Palette (TE Override) */
-      --bg: #1A1A1A;
-      --panel-bg: #1A1A1A;
-      --btn-face: #262626;
-      --btn-light: #333333;
-      --btn-shadow: #000000;
+      /* R0GB0T Brand Palette (Light Mode) */
+      --bg: #F5F5F5;
+      --panel-bg: #FFFFFF;
+      --btn-face: #E8E8E8;
+      --btn-light: #F8F8F8;
+      --btn-shadow: #D0D0D0;
       --btn-record: #DB2E40;
       --btn-play: #D3FF01;
-      --text: #FFFFFF;
-      --text-dim: #999999;
+      --text: #1A1A1A;
+      --text-dim: #666666;
+      --border-light: #E0E0E0;
     }
 
     html {
@@ -66,50 +67,52 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
-      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      line-height: 1.8;
     }
 
     /* ===== KO PANEL (Main Container) ===== */
     .ko-panel {
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       background: var(--panel-bg);
-      border-radius: 16px;
-      padding: 3rem 2rem;
+      border-radius: 24px;
+      padding: 4rem 3rem;
       box-shadow: 
-        inset 0 2px 4px rgba(255, 255, 255, 0.05),
-        0 8px 32px rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        0 12px 48px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-light);
     }
 
     /* ===== SECTION: HERO ===== */
     .hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-size: clamp(2rem, 6vw, 3.5rem);
       text-align: center;
-      margin-bottom: 1rem;
-      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 1.3;
+      color: var(--btn-record);
     }
 
     .hero-subtitle {
       text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      opacity: 0.9;
+      font-size: 1.3rem;
+      margin-bottom: 4rem;
+      opacity: 0.85;
       font-weight: 400;
+      color: var(--text-dim);
     }
 
     /* ===== SECTION: BUTTON GRID ===== */
     .btn-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 3rem;
-      max-width: 400px;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -119,80 +122,82 @@
       aspect-ratio: 1;
       background: linear-gradient(145deg, var(--btn-light), var(--btn-face));
       border: 2px solid var(--btn-shadow);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
       box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8);
       position: relative;
       text-decoration: none;
       color: var(--text);
       font-family: 'Helvetica Neue', Arial, sans-serif;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 0.05em;
     }
 
     .te-btn:hover {
-      filter: brightness(1.15);
-      transform: translateY(-1px);
+      filter: brightness(0.95);
+      transform: translateY(-2px);
       box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.6),
-        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+        0 4px 16px rgba(0, 0, 0, 0.15),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
     }
 
     .te-btn:active {
       transform: translateY(2px);
       box-shadow: 
-        0 1px 2px rgba(0, 0, 0, 0.8),
-        inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        0 1px 4px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
     }
 
     /* Icon Container */
     .te-btn .icon {
-      font-size: 2rem;
+      font-size: 2.5rem;
       line-height: 1;
     }
 
     .te-btn .label {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       opacity: 0.9;
     }
 
     /* Primary CTA Buttons (Larger) */
     .te-btn.record {
-      background: linear-gradient(145deg, #e63950, var(--btn-record));
-      border-color: #a01f2e;
-      color: var(--text);
+      background: linear-gradient(145deg, #e85565, var(--btn-record));
+      border-color: #b82535;
+      color: #FFFFFF;
       grid-column: span 2;
+      font-size: 0.85rem;
     }
 
     .te-btn.record:hover {
-      filter: brightness(1.2);
+      filter: brightness(1.1);
       box-shadow: 
-        0 4px 12px rgba(219, 46, 64, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        0 6px 20px rgba(219, 46, 64, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
     }
 
     .te-btn.play {
-      background: linear-gradient(145deg, #e8ff33, var(--btn-play));
-      border-color: #9fbc00;
-      color: #000000;
+      background: linear-gradient(145deg, #e0ff50, var(--btn-play));
+      border-color: #a8c900;
+      color: #1A1A1A;
       grid-column: span 2;
+      font-size: 0.85rem;
     }
 
     .te-btn.play:hover {
-      filter: brightness(1.1);
+      filter: brightness(1.05);
       box-shadow: 
-        0 4px 12px rgba(211, 255, 1, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        0 6px 20px rgba(211, 255, 1, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     /* Service Buttons */
@@ -202,152 +207,161 @@
 
     /* ===== SECTION: ABOUT ===== */
     .about-snippet {
-      background: rgba(38, 38, 38, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
+      background: rgba(248, 248, 248, 0.8);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
       text-align: center;
     }
 
     .about-snippet h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      color: var(--btn-record);
     }
 
     .about-snippet p {
-      font-size: 1rem;
-      line-height: 1.8;
-      opacity: 0.95;
+      font-size: 1.1rem;
+      line-height: 2;
+      opacity: 0.9;
+      color: var(--text-dim);
     }
 
     .highlight {
-      color: var(--btn-play);
-      font-weight: 600;
+      color: var(--btn-record);
+      font-weight: 700;
+      background: linear-gradient(120deg, rgba(211, 255, 1, 0.2) 0%, rgba(219, 46, 64, 0.1) 100%);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
     }
 
     /* ===== SECTION: CONTACT ===== */
     .contact-section {
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
 
     .contact-section h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      color: var(--btn-record);
     }
 
     .contact-form {
-      max-width: 500px;
-      margin: 0 auto 2rem;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
     }
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-group label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
       font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-dim);
     }
 
     .te-input {
       width: 100%;
       background: var(--btn-face);
       border: 2px solid var(--btn-shadow);
-      border-radius: 8px;
-      padding: 0.9rem;
+      border-radius: 12px;
+      padding: 1.1rem;
       color: var(--text);
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       transition: all 0.2s ease;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
     }
 
     .te-input:focus {
       outline: none;
       border-color: var(--btn-record);
+      background: #FFFFFF;
       box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.3),
-        0 0 0 3px rgba(219, 46, 64, 0.2);
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 0 0 3px rgba(219, 46, 64, 0.15);
     }
 
     textarea.te-input {
       resize: vertical;
-      min-height: 120px;
+      min-height: 140px;
       font-family: 'Inter', sans-serif;
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(145deg, #e63950, var(--btn-record));
-      border: 2px solid #a01f2e;
-      border-radius: 12px;
-      padding: 1rem;
-      color: var(--text);
+      background: linear-gradient(145deg, #e85565, var(--btn-record));
+      border: 2px solid #b82535;
+      border-radius: 16px;
+      padding: 1.2rem;
+      color: #FFFFFF;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       font-weight: 700;
       text-transform: uppercase;
       font-size: 1rem;
       letter-spacing: 0.1em;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
       box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
     }
 
     .submit-btn:hover {
-      filter: brightness(1.2);
+      filter: brightness(1.1);
       transform: translateY(-2px);
       box-shadow: 
-        0 4px 12px rgba(219, 46, 64, 0.5),
-        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        0 6px 20px rgba(219, 46, 64, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     .submit-btn:active {
       transform: translateY(1px);
       box-shadow: 
-        0 1px 2px rgba(0, 0, 0, 0.8),
-        inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        0 1px 4px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
     }
 
     .contact-info {
       text-align: center;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.95rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 1rem;
     }
 
     .contact-info a {
       color: var(--btn-record);
       text-decoration: none;
       transition: color 0.2s ease;
+      font-weight: 600;
     }
 
     .contact-info a:hover {
-      color: var(--btn-play);
+      color: #a8c900;
     }
 
     /* ===== SECTION: FOOTER ===== */
     .footer {
       text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.85rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.9rem;
       opacity: 0.7;
       font-family: 'Helvetica Neue', Arial, sans-serif;
     }
@@ -356,21 +370,23 @@
       color: var(--btn-record);
       text-decoration: none;
       transition: color 0.2s ease;
+      font-weight: 600;
     }
 
     .footer a:hover {
-      color: var(--btn-play);
+      color: #a8c900;
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .ko-panel {
-        padding: 2rem 1.5rem;
+        padding: 3rem 2rem;
       }
 
       .btn-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 300px;
+        max-width: 350px;
+        gap: 1.25rem;
       }
 
       .te-btn.record,
@@ -379,34 +395,47 @@
       }
 
       .hero-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
       }
 
       .about-snippet {
-        padding: 1.5rem;
+        padding: 2rem;
       }
     }
 
     @media (max-width: 480px) {
       body {
-        padding: 1rem 0.5rem;
+        padding: 2rem 0.75rem;
       }
 
       .ko-panel {
-        padding: 1.5rem 1rem;
-        border-radius: 12px;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
       }
 
       .btn-grid {
-        gap: 0.75rem;
+        gap: 1rem;
       }
 
       .te-btn .icon {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .te-btn .label {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+      }
+
+      .about-snippet p {
+        font-size: 1rem;
       }
     }
 
@@ -414,8 +443,8 @@
     .te-btn:focus-visible,
     .te-input:focus-visible,
     .submit-btn:focus-visible {
-      outline: 3px solid var(--btn-play);
-      outline-offset: 2px;
+      outline: 3px solid var(--btn-record);
+      outline-offset: 3px;
     }
   </style>
 </head>
