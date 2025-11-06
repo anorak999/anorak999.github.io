@@ -30,10 +30,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* ===== GLOBAL RESET & VARIABLES ===== */
+    /* ===== TEENAGE ENGINEERING × R0GB0T FUSION ===== */
+    
     * {
       margin: 0;
       padding: 0;
@@ -41,11 +42,16 @@
     }
 
     :root {
-      --deep-black: #1A1A1A;
-      --pure-white: #FFFFFF;
-      --robot-red: #DB2E40;
-      --neon-green: #D3FF01;
-      --card-bg: #262626;
+      /* R0GB0T Brand Palette (TE Override) */
+      --bg: #1A1A1A;
+      --panel-bg: #1A1A1A;
+      --btn-face: #262626;
+      --btn-light: #333333;
+      --btn-shadow: #000000;
+      --btn-record: #DB2E40;
+      --btn-play: #D3FF01;
+      --text: #FFFFFF;
+      --text-dim: #999999;
     }
 
     html {
@@ -53,419 +59,476 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--deep-black);
-      color: var(--pure-white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ===== CONTAINER ===== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ===== SECTION: HERO ===== */
-    .hero {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== KO PANEL (Main Container) ===== */
+    .ko-panel {
+      max-width: 800px;
+      width: 100%;
+      background: var(--panel-bg);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.05),
+        0 8px 32px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ===== SECTION: HERO ===== */
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
       text-align: center;
-      background: var(--deep-black);
-      position: relative;
-      padding: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
 
-    .hero-content h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-      animation: fadeInUp 0.8s ease;
-    }
-
-    .hero-motto {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
+    .hero-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
       margin-bottom: 3rem;
       opacity: 0.9;
-      animation: fadeInUp 1s ease;
+      font-weight: 400;
     }
 
-    .cta-button {
-      display: inline-block;
-      background: var(--robot-red);
-      color: var(--pure-white);
-      padding: 1.2rem 3rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      border: 2px solid var(--robot-red);
-      animation: fadeInUp 1.2s ease;
+    /* ===== SECTION: BUTTON GRID ===== */
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TE-Style Button Base */
+    .te-btn {
+      aspect-ratio: 1;
+      background: linear-gradient(145deg, var(--btn-light), var(--btn-face));
+      border: 2px solid var(--btn-shadow);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+      position: relative;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
     }
 
-    .cta-button:hover {
-      background: var(--deep-black);
-      color: var(--neon-green);
-      border-color: var(--neon-green);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(211, 255, 1, 0.4);
+    .te-btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    }
+
+    .te-btn:active {
+      transform: translateY(2px);
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Icon Container */
+    .te-btn .icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .te-btn .label {
+      font-size: 0.65rem;
+      opacity: 0.9;
+    }
+
+    /* Primary CTA Buttons (Larger) */
+    .te-btn.record {
+      background: linear-gradient(145deg, #e63950, var(--btn-record));
+      border-color: #a01f2e;
+      color: var(--text);
+      grid-column: span 2;
+    }
+
+    .te-btn.record:hover {
+      filter: brightness(1.2);
+      box-shadow: 
+        0 4px 12px rgba(219, 46, 64, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    .te-btn.play {
+      background: linear-gradient(145deg, #e8ff33, var(--btn-play));
+      border-color: #9fbc00;
+      color: #000000;
+      grid-column: span 2;
+    }
+
+    .te-btn.play:hover {
+      filter: brightness(1.1);
+      box-shadow: 
+        0 4px 12px rgba(211, 255, 1, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Service Buttons */
+    .te-btn.service {
+      font-size: 0.6rem;
     }
 
     /* ===== SECTION: ABOUT ===== */
-    .about {
-      padding: 6rem 0;
-      background: var(--deep-black);
-    }
-
-    .about h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
+    .about-snippet {
+      background: rgba(38, 38, 38, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
       margin-bottom: 2rem;
       text-align: center;
     }
 
-    .about-text {
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
+    .about-snippet h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .about-snippet p {
+      font-size: 1rem;
       line-height: 1.8;
-      text-align: center;
       opacity: 0.95;
     }
 
     .highlight {
-      color: var(--neon-green);
+      color: var(--btn-play);
       font-weight: 600;
     }
 
-    /* ===== SECTION: SERVICES ===== */
-    .services {
-      padding: 6rem 0;
-      background: var(--deep-black);
-    }
-
-    .services h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background: var(--card-bg);
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .service-card:hover {
-      border-color: var(--robot-red);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(219, 46, 64, 0.3);
-    }
-
-    .service-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--robot-red);
-    }
-
-    .service-card p {
-      font-size: 1rem;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
     /* ===== SECTION: CONTACT ===== */
-    .contact {
-      padding: 6rem 0;
-      background: var(--deep-black);
+    .contact-section {
+      margin-top: 3rem;
     }
 
-    .contact h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
+    .contact-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
       text-align: center;
-    }
-
-    .contact-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 500px;
+      margin: 0 auto 2rem;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .form-group label {
       display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 0.5rem;
-      font-weight: 500;
+      font-weight: 600;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
     }
 
-    .form-group input,
-    .form-group textarea {
+    .te-input {
       width: 100%;
-      padding: 1rem;
-      background: var(--card-bg);
-      border: 2px solid transparent;
+      background: var(--btn-face);
+      border: 2px solid var(--btn-shadow);
       border-radius: 8px;
-      color: var(--pure-white);
+      padding: 0.9rem;
+      color: var(--text);
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
+    .te-input:focus {
       outline: none;
-      border-color: var(--robot-red);
+      border-color: var(--btn-record);
+      box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 3px rgba(219, 46, 64, 0.2);
     }
 
-    .form-group textarea {
+    textarea.te-input {
       resize: vertical;
-      min-height: 150px;
-    }
-
-    .submit-button {
-      width: 100%;
-      background: var(--robot-red);
-      color: var(--pure-white);
-      padding: 1.2rem;
-      border: 2px solid var(--robot-red);
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      min-height: 120px;
       font-family: 'Inter', sans-serif;
     }
 
-    .submit-button:hover {
-      background: var(--deep-black);
-      color: var(--neon-green);
-      border-color: var(--neon-green);
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(145deg, #e63950, var(--btn-record));
+      border: 2px solid #a01f2e;
+      border-radius: 12px;
+      padding: 1rem;
+      color: var(--text);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    .submit-btn:hover {
+      filter: brightness(1.2);
       transform: translateY(-2px);
+      box-shadow: 
+        0 4px 12px rgba(219, 46, 64, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        inset 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .contact-info {
       text-align: center;
-      margin-top: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--card-bg);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.95rem;
     }
 
     .contact-info a {
-      color: var(--robot-red);
+      color: var(--btn-record);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.2s ease;
     }
 
     .contact-info a:hover {
-      color: var(--neon-green);
+      color: var(--btn-play);
     }
 
     /* ===== SECTION: FOOTER ===== */
     .footer {
-      padding: 3rem 0;
-      background: var(--deep-black);
-      border-top: 1px solid var(--card-bg);
       text-align: center;
-    }
-
-    .footer-content {
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    .footer-content a {
-      color: var(--robot-red);
-      transition: color 0.3s ease;
-    }
-
-    .footer-content a:hover {
-      color: var(--neon-green);
-    }
-
-    .footer-location {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
       opacity: 0.7;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
     }
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .footer a {
+      color: var(--btn-record);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--btn-play);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .container {
-        padding: 0 1.5rem;
+      .ko-panel {
+        padding: 2rem 1.5rem;
       }
 
-      .hero {
+      .btn-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 300px;
+      }
+
+      .te-btn.record,
+      .te-btn.play {
+        grid-column: span 1;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .about-snippet {
         padding: 1.5rem;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .about,
-      .services,
-      .contact {
-        padding: 4rem 0;
       }
     }
 
     @media (max-width: 480px) {
-      .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
+      body {
+        padding: 1rem 0.5rem;
       }
 
-      .submit-button {
-        padding: 1rem;
-        font-size: 1rem;
+      .ko-panel {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
       }
+
+      .btn-grid {
+        gap: 0.75rem;
+      }
+
+      .te-btn .icon {
+        font-size: 1.5rem;
+      }
+
+      .te-btn .label {
+        font-size: 0.6rem;
+      }
+    }
+
+    /* ===== ACCESSIBILITY ===== */
+    .te-btn:focus-visible,
+    .te-input:focus-visible,
+    .submit-btn:focus-visible {
+      outline: 3px solid var(--btn-play);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
 
-  <!-- SECTION: HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Building Intelligence, Not Barriers</h1>
-      <p class="hero-motto">Where innovation meets accessibility</p>
-      <a href="#contact" class="cta-button">Get Started</a>
-    </div>
-  </section>
+  <!-- SECTION: MAIN PANEL -->
+  <div class="ko-panel">
+    
+    <!-- SECTION: HERO -->
+    <h1 class="hero-title">Building Intelligence,<br>Not Barriers</h1>
+    <p class="hero-subtitle">Where innovation meets accessibility</p>
 
-  <!-- SECTION: ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2>AI for Every Sri Lankan Business</h2>
-      <p class="about-text">
-        R0GB0T is an AI-first development studio based in Sri Lanka, delivering intelligent applications at rates that are <span class="highlight">40–60% lower than global markets</span>. We specialize in custom AI solutions, natural language processing, and intelligent automation—turning complex research into production-ready tools. Whether you're a startup or an established enterprise, we build powerful, practical AI that drives real results without the enterprise price tag.
-      </p>
-    </div>
-  </section>
+    <!-- SECTION: BUTTON GRID -->
+    <div class="btn-grid">
+      
+      <!-- Primary CTA Buttons -->
+      <a href="#contact" class="te-btn record" aria-label="Get Started with R0GB0T">
+        <span class="icon">●</span>
+        <span class="label">Get Started</span>
+      </a>
 
-  <!-- SECTION: SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2>What We Build</h2>
-      <div class="service-grid">
-        
-        <div class="service-card">
-          <span class="service-icon">🤖</span>
-          <h3>AI-Integrated SaaS</h3>
-          <p>Custom AI-powered platforms with NLP, predictive analytics, and intelligent automation tailored to your business.</p>
-        </div>
+      <a href="#about" class="te-btn play" aria-label="Learn about R0GB0T">
+        <span class="icon">▶</span>
+        <span class="label">Learn More</span>
+      </a>
 
-        <div class="service-card">
-          <span class="service-icon">📱</span>
-          <h3>Mobile Apps</h3>
-          <p>Cross-platform mobile applications with AI capabilities, seamless UX, and real-time data intelligence.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🚀</span>
-          <h3>Smart Landing Pages</h3>
-          <p>High-converting, SEO-optimized websites with AI-driven personalization and analytics integration.</p>
-        </div>
-
+      <!-- Service Buttons (4×2 grid) -->
+      <div class="te-btn service" aria-label="AI SaaS Solutions">
+        <span class="icon">🤖</span>
+        <span class="label">AI SaaS</span>
       </div>
-    </div>
-  </section>
 
-  <!-- SECTION: CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>Let's Build Something Intelligent</h2>
-      <p class="contact-subtitle">Ready to bring AI to your business? Get in touch.</p>
+      <div class="te-btn service" aria-label="Mobile Applications">
+        <span class="icon">📱</span>
+        <span class="label">Mobile</span>
+      </div>
+
+      <div class="te-btn service" aria-label="Landing Pages">
+        <span class="icon">🚀</span>
+        <span class="label">Web</span>
+      </div>
+
+      <div class="te-btn service" aria-label="NLP & Chat">
+        <span class="icon">💬</span>
+        <span class="label">NLP</span>
+      </div>
+
+      <div class="te-btn service" aria-label="System Automation">
+        <span class="icon">⚙️</span>
+        <span class="label">Automate</span>
+      </div>
+
+      <div class="te-btn service" aria-label="Data Intelligence">
+        <span class="icon">📊</span>
+        <span class="label">Data</span>
+      </div>
+
+      <div class="te-btn service" aria-label="Cloud Infrastructure">
+        <span class="icon">☁️</span>
+        <span class="label">Cloud</span>
+      </div>
+
+      <div class="te-btn service" aria-label="Security AI">
+        <span class="icon">🔒</span>
+        <span class="label">Security</span>
+      </div>
+
+    </div>
+
+    <!-- SECTION: ABOUT -->
+    <section class="about-snippet" id="about">
+      <h2>AI for Every Business</h2>
+      <p>
+        R0GB0T is an AI-first development studio based in Sri Lanka, delivering intelligent applications at rates that are <span class="highlight">40–60% lower than global markets</span>. We specialize in custom AI solutions, NLP, and intelligent automation—turning complex research into production-ready tools that drive real results.
+      </p>
+    </section>
+
+    <!-- SECTION: CONTACT -->
+    <section class="contact-section" id="contact">
+      <h2>Connect</h2>
       
       <form class="contact-form" action="https://formspree.io/f/xeoqplkr" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" class="te-input" required>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" class="te-input" required>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" class="te-input" required></textarea>
         </div>
 
-        <button type="submit" class="submit-button">Send Message</button>
+        <button type="submit" class="submit-btn">Send Message</button>
       </form>
 
       <div class="contact-info">
         <p>📧 <a href="mailto:himath.hr@gmail.com">himath.hr@gmail.com</a></p>
         <p>💻 <a href="https://github.com/anorak999" target="_blank" rel="noopener">github.com/anorak999</a></p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SECTION: FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2025 <a href="https://r0gb0t.me" target="_blank" rel="noopener">R0GB0T</a>. All rights reserved.</p>
-        <p class="footer-location">Based in Sri Lanka 🚀</p>
-      </div>
-    </div>
-  </footer>
+    <!-- SECTION: FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2025 <a href="https://r0gb0t.me" target="_blank" rel="noopener">R0GB0T</a>. All rights reserved.</p>
+      <p>Based in Sri Lanka 🚀</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
