@@ -1,238 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="R0GB0T - AI-Powered Solutions for Sri Lankan Businesses. Building Intelligence, Not Barriers."/>
-  <title>R0GB0T | AI-Powered Solutions for Sri Lankan Businesses</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="R0GB0T - Building Intelligence, Not Barriers. AI-powered solutions for Sri Lankan businesses at accessible rates.">
+  <title>R0GB0T | AI-Powered Solutions for Sri Lanka</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-black: #1A1A1A;
+      --pure-white: #FFFFFF;
+      --robot-red: #DB2E40;
+      --neon-green: #D3FF01;
+      --card-bg: #262626;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--deep-black);
+      color: var(--pure-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== SECTION: HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--deep-black);
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero-motto {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--robot-red);
+      color: var(--pure-white);
+      padding: 1.2rem 3rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--robot-red);
+      animation: fadeInUp 1.2s ease;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: var(--deep-black);
+      color: var(--neon-green);
+      border-color: var(--neon-green);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(211, 255, 1, 0.4);
+    }
+
+    /* ===== SECTION: ABOUT ===== */
+    .about {
+      padding: 6rem 0;
+      background: var(--deep-black);
+    }
+
+    .about h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+      opacity: 0.95;
+    }
+
+    .highlight {
+      color: var(--neon-green);
+      font-weight: 600;
+    }
+
+    /* ===== SECTION: SERVICES ===== */
+    .services {
+      padding: 6rem 0;
+      background: var(--deep-black);
+    }
+
+    .services h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .service-card:hover {
+      border-color: var(--robot-red);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(219, 46, 64, 0.3);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--robot-red);
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION: CONTACT ===== */
+    .contact {
+      padding: 6rem 0;
+      background: var(--deep-black);
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .contact-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: var(--card-bg);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      color: var(--pure-white);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--robot-red);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .submit-button {
+      width: 100%;
+      background: var(--robot-red);
+      color: var(--pure-white);
+      padding: 1.2rem;
+      border: 2px solid var(--robot-red);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .submit-button:hover {
+      background: var(--deep-black);
+      color: var(--neon-green);
+      border-color: var(--neon-green);
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--card-bg);
+    }
+
+    .contact-info a {
+      color: var(--robot-red);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--neon-green);
+    }
+
+    /* ===== SECTION: FOOTER ===== */
+    .footer {
+      padding: 3rem 0;
+      background: var(--deep-black);
+      border-top: 1px solid var(--card-bg);
+      text-align: center;
+    }
+
+    .footer-content {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    .footer-content a {
+      color: var(--robot-red);
+      transition: color 0.3s ease;
+    }
+
+    .footer-content a:hover {
+      color: var(--neon-green);
+    }
+
+    .footer-location {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .about,
+      .services,
+      .contact {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+
+      .submit-button {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="container">
-      <h1>R0GB0T</h1>
-      <p class="tagline">Building Intelligence, Not Barriers</p>
-      <p class="motto">Where innovation meets accessibility</p>
-      <p class="hero-description">Intelligent applications. Accessible pricing. Real results.</p>
-      <a href="#contact" class="cta-button">Get Your AI App</a>
-    </div>
-  </header>
-
-  <!-- ABOUT SECTION -->
-  <section class="about">
-    <div class="container">
-      <h2>About R0GB0T</h2>
-      <p class="bio">
-        R0GB0T was founded on a simple belief: every business, regardless of size or budget, deserves access to intelligent technology that drives real results. We're a lean, <span class="highlight">AI</span>-first development studio operating from Sri Lanka's emerging tech ecosystem, leveraging world-class talent to deliver custom AI applications at rates that are <span class="highlight">40–60%</span> lower than global markets. Our mission is to democratize AI by building tools that are powerful, practical, and purpose-built for small and medium-sized businesses across South Asia and beyond. We specialize in natural language processing, automation, predictive analytics, and intelligent system administration—turning complex AI research into production-ready solutions. By 2027, we aim to deploy <span class="highlight">50+ AI applications</span> across industries like healthcare, finance, retail, and public infrastructure. At R0GB0T, we don't just build software—we build partnerships. Every project is guided by transparency, collaboration, and a commitment to measurable impact. Whether you're automating customer support, optimizing operations, or launching your first AI product, we're here to make it happen—without the enterprise price tag.
-      </p>
-      <div class="stats">
-        <div><strong>40–60%</strong><br/>Lower than global rates</div>
-        <div><strong>50+</strong><br/>AI Apps by 2027</div>
-        <div><strong>100%</strong><br/>Sri Lankan talent</div>
-      </div>
+  <!-- SECTION: HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Building Intelligence, Not Barriers</h1>
+      <p class="hero-motto">Where innovation meets accessibility</p>
+      <a href="#contact" class="cta-button">Get Started</a>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section class="services">
+  <!-- SECTION: ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2>AI for Every Sri Lankan Business</h2>
+      <p class="about-text">
+        R0GB0T is an AI-first development studio based in Sri Lanka, delivering intelligent applications at rates that are <span class="highlight">40–60% lower than global markets</span>. We specialize in custom AI solutions, natural language processing, and intelligent automation—turning complex research into production-ready tools. Whether you're a startup or an established enterprise, we build powerful, practical AI that drives real results without the enterprise price tag.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION: SERVICES -->
+  <section class="services" id="services">
     <div class="container">
       <h2>What We Build</h2>
       <div class="service-grid">
+        
         <div class="service-card">
-          <h3>Custom AI Applications</h3>
-          <p>From chatbots to predictive analytics, we build AI tools tailored to your business needs.</p>
+          <span class="service-icon">🤖</span>
+          <h3>AI-Integrated SaaS</h3>
+          <p>Custom AI-powered platforms with NLP, predictive analytics, and intelligent automation tailored to your business.</p>
         </div>
+
         <div class="service-card">
-          <h3>System Automation</h3>
-          <p>Intelligent <span class="highlight">Linux</span> administration, monitoring, and security powered by AI.</p>
+          <span class="service-icon">📱</span>
+          <h3>Mobile Apps</h3>
+          <p>Cross-platform mobile applications with AI capabilities, seamless UX, and real-time data intelligence.</p>
         </div>
+
         <div class="service-card">
-          <h3>NLP & Language Models</h3>
-          <p>Document processing, sentiment analysis, and conversational AI for customer engagement.</p>
+          <span class="service-icon">🚀</span>
+          <h3>Smart Landing Pages</h3>
+          <p>High-converting, SEO-optimized websites with AI-driven personalization and analytics integration.</p>
         </div>
-        <div class="service-card">
-          <h3>Data Intelligence</h3>
-          <p>Turn raw data into actionable insights with AI-driven analytics and visualization.</p>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- RESEARCH PAPER SECTION -->
-  <section class="research">
+  <!-- SECTION: CONTACT -->
+  <section class="contact" id="contact">
     <div class="container">
-      <h2>Featured Research</h2>
-      <article class="paper">
-        <h3>Artificial Intelligence Applications in Linux System Administration: Enhancing Efficiency and Security</h3>
-        <p class="paper-meta">Research by R0GB0T | 2024</p>
-        
-        <div class="abstract">
-          <h4>Abstract</h4>
-          <p>
-            This paper examines the application of <span class="highlight">Artificial Intelligence (AI)</span> to common problems faced in <span class="highlight">Linux</span> system administration. As Linux environments grow in complexity, traditional manual methods of monitoring, troubleshooting, and securing systems become increasingly inefficient. This research demonstrates how AI techniques—including machine learning, natural language processing, and predictive analytics—can automate routine tasks, detect anomalies in <span class="highlight">real-time</span>, and provide intelligent recommendations for system optimization. Through a review of existing literature and practical case studies, this paper highlights the potential of AI to transform Linux administration from reactive problem-solving to proactive, data-driven management. The findings suggest that AI-powered tools can significantly reduce downtime, improve security posture, and enable administrators to focus on strategic initiatives rather than repetitive operational tasks.
-          </p>
+      <h2>Let's Build Something Intelligent</h2>
+      <p class="contact-subtitle">Ready to bring AI to your business? Get in touch.</p>
+      
+      <form class="contact-form" action="https://formspree.io/f/xeoqplkr" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
 
-        <div class="paper-sections">
-          <details>
-            <summary>1. Introduction & Problem Statement</summary>
-            <div class="section-content">
-              <p>
-                <span class="highlight">Linux</span> system administrators frequently face challenges such as:
-              </p>
-              <ul>
-                <li><strong>Log Analysis Overload:</strong> Servers generate massive volumes of log data daily, making manual analysis impractical.</li>
-                <li><strong>Security Threat Detection:</strong> Identifying suspicious activity requires constant vigilance and expertise.</li>
-                <li><strong>Performance Bottlenecks:</strong> Diagnosing resource contention and optimization opportunities is time-consuming.</li>
-                <li><strong>Repetitive Tasks:</strong> Routine maintenance like patch management and backup verification consumes valuable time.</li>
-              </ul>
-              <p>
-                Traditional tools (grep, awk, sed) are powerful but limited in handling the scale and complexity of modern infrastructure. This research explores how <span class="highlight">AI</span> can augment human administrators by automating pattern recognition, anomaly detection, and decision-making.
-              </p>
-            </div>
-          </details>
-
-          <details>
-            <summary>2. Hypothesis & Objectives</summary>
-            <div class="section-content">
-              <p><strong>Hypothesis:</strong> AI-powered tools can reduce incident response time by at least <span class="highlight">40%</span> and improve security threat detection accuracy compared to rule-based systems.</p>
-              <p><strong>Objectives:</strong></p>
-              <ul>
-                <li>Demonstrate how machine learning models can predict system failures before they occur.</li>
-                <li>Show how NLP can parse unstructured logs and extract actionable insights.</li>
-                <li>Evaluate the effectiveness of AI-driven intrusion detection compared to traditional signature-based methods.</li>
-                <li>Provide practical recommendations for integrating AI tools into existing Linux workflows.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details>
-            <summary>3. Literature Review</summary>
-            <div class="section-content">
-              <p>
-                Recent advancements in AI have led to several open-source and commercial tools designed for system administration:
-              </p>
-              <ul>
-                <li><strong>Logstash + Elastic ML:</strong> Combines log aggregation with anomaly detection using unsupervised learning.</li>
-                <li><strong>Wazuh:</strong> Open-source security platform with AI-enhanced threat detection.</li>
-                <li><strong>Prometheus + Grafana + ML Plugins:</strong> Time-series monitoring with predictive alerting.</li>
-                <li><strong>OpenAI Codex for Shell Commands:</strong> Natural language to bash translation for automation.</li>
-              </ul>
-              <p>
-                Studies show that AI-driven monitoring reduces false positives by up to <span class="highlight">60%</span> and enables proactive maintenance, preventing up to <span class="highlight">70%</span> of unplanned outages.
-              </p>
-            </div>
-          </details>
-
-          <details>
-            <summary>4. Proposed Solutions</summary>
-            <div class="section-content">
-              <h5>A. Intelligent Log Analysis</h5>
-              <p>Use NLP models to parse syslog, journalctl, and application logs, automatically categorizing errors, warnings, and critical events. Machine learning algorithms detect deviations from baseline behavior.</p>
-              
-              <h5>B. Predictive System Monitoring</h5>
-              <p>Train time-series forecasting models (LSTM, Prophet) on historical metrics (CPU, memory, disk I/O) to predict resource exhaustion and alert administrators before failures occur.</p>
-              
-              <h5>C. Automated Incident Response</h5>
-              <p>Integrate AI agents with orchestration tools (Ansible, Terraform) to execute remediation playbooks automatically when anomalies are detected—e.g., restarting failed services, scaling resources, or isolating compromised nodes.</p>
-              
-              <h5>D. Security Threat Intelligence</h5>
-              <p>Deploy AI-powered intrusion detection systems (IDS) that learn normal network traffic patterns and flag deviations indicative of attacks (DDoS, brute force, privilege escalation).</p>
-            </div>
-          </details>
-
-          <details>
-            <summary>5. Case Study: AI-Powered Monitoring in Production</summary>
-            <div class="section-content">
-              <p>
-                A mid-sized e-commerce platform running on <span class="highlight">Linux</span> servers implemented an AI-driven monitoring stack combining:
-              </p>
-              <ul>
-                <li><strong>Elastic Stack with ML:</strong> For log aggregation and anomaly detection.</li>
-                <li><strong>Prometheus + Custom ML Models:</strong> For predictive alerting on database query latency.</li>
-                <li><strong>Wazuh:</strong> For security event correlation and automated threat response.</li>
-              </ul>
-              <p><strong>Results (6-month pilot):</strong></p>
-              <ul>
-                <li><span class="highlight">47%</span> reduction in mean time to resolution (MTTR) for incidents.</li>
-                <li><span class="highlight">63%</span> decrease in false-positive alerts.</li>
-                <li>Zero unplanned outages (vs. 3 in the previous 6 months).</li>
-                <li>Security team identified and mitigated 12 potential breaches proactively.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details>
-            <summary>6. Challenges & Limitations</summary>
-            <div class="section-content">
-              <ul>
-                <li><strong>Data Quality:</strong> AI models require clean, labeled data. Noisy logs reduce accuracy.</li>
-                <li><strong>Interpretability:</strong> Black-box models (e.g., neural networks) make it hard to explain decisions to stakeholders.</li>
-                <li><strong>Resource Overhead:</strong> Training and running ML models can be compute-intensive.</li>
-                <li><strong>Skill Gap:</strong> Many sysadmins lack ML expertise, requiring training or collaboration with data scientists.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details>
-            <summary>7. Conclusion & Future Work</summary>
-            <div class="section-content">
-              <p>
-                <span class="highlight">AI</span> provides significant advantages in <span class="highlight">Linux</span> system administration by automating repetitive tasks, enhancing security, and enabling predictive maintenance. The integration of machine learning, NLP, and intelligent automation transforms reactive troubleshooting into proactive system management.
-              </p>
-              <p><strong>Key Takeaways:</strong></p>
-              <ul>
-                <li>AI reduces incident response time and minimizes downtime.</li>
-                <li>Predictive analytics prevent failures before they impact users.</li>
-                <li>Security AI detects threats faster and more accurately than rule-based systems.</li>
-              </ul>
-              <p><strong>Future Research Directions:</strong></p>
-              <ul>
-                <li>Federated learning for collaborative threat intelligence across organizations.</li>
-                <li>Edge AI for real-time anomaly detection on IoT and embedded Linux devices.</li>
-                <li>Explainable AI (XAI) to improve trust and transparency in automated decision-making.</li>
-              </ul>
-              <p>
-                As AI tools mature and become more accessible, their adoption in Linux administration will accelerate, empowering teams to manage increasingly complex infrastructures with greater efficiency and confidence.
-              </p>
-            </div>
-          </details>
-
-          <details>
-            <summary>8. References</summary>
-            <div class="section-content">
-              <ul>
-                <li>Elastic. (2024). Machine Learning in the Elastic Stack. <em>Elastic Documentation</em>.</li>
-                <li>Wazuh Inc. (2024). AI-Powered Security Monitoring for Linux. <em>Wazuh Whitepaper</em>.</li>
-                <li>Facebook AI Research. (2023). Prophet: Forecasting at Scale. <em>GitHub Repository</em>.</li>
-                <li>OpenAI. (2024). Codex: Translating Natural Language to Code. <em>OpenAI Research</em>.</li>
-                <li>Red Hat. (2023). The Future of Intelligent Infrastructure. <em>Red Hat Summit Proceedings</em>.</li>
-              </ul>
-            </div>
-          </details>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
         </div>
-      </article>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p>📧 <a href="mailto:himath.hr@gmail.com">himath.hr@gmail.com</a></p>
+        <p>💻 <a href="https://github.com/anorak999" target="_blank" rel="noopener">github.com/anorak999</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- CTA FOOTER -->
-  <footer id="contact" class="footer-cta">
+  <!-- SECTION: FOOTER -->
+  <footer class="footer">
     <div class="container">
-      <h3>Ready to Build Intelligent Apps?</h3>
-      <p>AI-powered solutions for businesses ready to grow. Let's talk about your next project.</p>
-      <a href="mailto:hello@r0gb0t.me" class="cta-button outline">Contact Us</a>
-      <p class="footer-note">📍 Based in Sri Lanka | 🌍 Serving businesses worldwide</p>
+      <div class="footer-content">
+        <p>&copy; 2025 <a href="https://r0gb0t.me" target="_blank" rel="noopener">R0GB0T</a>. All rights reserved.</p>
+        <p class="footer-location">Based in Sri Lanka 🚀</p>
+      </div>
     </div>
   </footer>
-
-  <div class="copyright">
-    <div class="container">
-      <p>&copy; 2024 R0GB0T. All rights reserved. | Building Intelligence, Not Barriers</p>
-    </div>
-  </div>
 
 </body>
 </html>
