@@ -12,6 +12,7 @@ AI-powered solutions for Sri Lankan businesses at accessible rates.
 ## 🎨 Design
 
 Modern landing page featuring:
+
 - **Teenage Engineering EP-133 K.O. II inspired UI** – Tactile button grid with hardware aesthetics
 - **WebGL Liquid Chrome Background** – Interactive animated background with mouse tracking
 - **Neon Noir Color Palette** – Deep blacks with vibrant purple and orange accents
