@@ -7,7 +7,7 @@ AI-powered solutions for Sri Lankan businesses at accessible rates.
 ## 🚀 Live Site
 
 - **Production**: [r0gb0t.me](https://r0gb0t.me)
-- **GitHub Pages**: [anorak999.github.io](https://anorak999.github.io)
+- **GitHub Pages**: [Himath-Rajapaksha.github.io](https://Himath-Rajapaksha.github.io)
 
 ## 🎨 Design
 
@@ -69,7 +69,7 @@ Site updates in 1-2 minutes after push.
 ## 📞 Contact
 
 - **Email**: himath.hr@gmail.com
-- **GitHub**: [@anorak999](https://github.com/anorak999)
+- **GitHub**: [@anorak999](https://github.com/Himath-Rajapaksha)
 - **Location**: Sri Lanka 🇱🇰
 
 ## 🎯 Features
